@@ -16,11 +16,11 @@ def main():
     wb = xw.Book.caller()
     hoja = wb.sheets[0]
 
-    qmax = hoja[QMAX]
-    pr = hoja[PR]
+    qmax = hoja[QMAX].value
+    pr = hoja[PR].value
     pwf = hoja[PWF].value
 
-    hoja[QO].value = caudalOil(qmax,pwf,pr)
+    hoja[QO].options(np.array, transpose=True).value = caudalOil(qmax,pwf,pr)
 
 
     # codigo para la gráfica
